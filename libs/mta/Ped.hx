@@ -1,6 +1,8 @@
 package mta;
 
-@:native("_G") @dotpath
+import mta.math.Vector3;
+
+@:native("Ped") @dotpath
 extern class Ped extends Element
 {
 	public var inVehicle(default, never):Bool;
@@ -23,7 +25,6 @@ extern class Ped extends Element
 	public var dead:Bool;
 	public var walkingStyle:Int;
 
-
 	public function addClothes(clothesTexture:String, clothesModel:String, clothesType:Int):Bool;
 	public function doesHaveJetpack():Bool;
 	public function getAmmoInClip():Bool;
@@ -45,4 +46,9 @@ extern class Ped extends Element
 	public function setAnimationProgress(anim:String, progress:Float):Bool;
 	public function setStat(stat:Int, value:Float):Bool;
 	public function warpIntoVehicle(vehicle:Vehicle, ?seat:Int):Bool;
+
+	public static inline function create(modelId:Int, position:Vector3, rotation:Float = 0, synced:Bool = true):Ped
+	{
+		return untyped __call__("Ped", modelId, position, rotation, synced);
+	}
 }

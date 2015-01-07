@@ -1,5 +1,6 @@
 package mta.math;
 
+@:native("Vector4") @dotpath
 extern class Vector4
 {
 	public var x:Float;
@@ -13,4 +14,9 @@ extern class Vector4
 	public function getLength():Float;
 	public function getSquaredLength():Float;
 	public function getNormalized():Vector4;
+
+	public static inline function create(x:Float = 0, y:Float = 0, z:Float = 0, w:Float = 0):Vector4
+	{
+		return untyped __call__("Vector4", x, y, z, w);
+	}
 }

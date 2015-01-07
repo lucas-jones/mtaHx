@@ -19,7 +19,6 @@ extern class Player extends Ped
 	public var blurLevel:Int;
 	public var name:String;
 	public var muted:Bool;
-
 	public var idleTime(default, never):Int;
 	public var ping(default, never):Int;
 	public var serial(default, never):String;
@@ -37,6 +36,7 @@ extern class Player extends Ped
 	public function getNametagColor():Vector3;
 	public static function getRandom():Player;
 	public function kick(?responsiblePlayer:Player, ?reason:String):Bool;
+	public function logIn(account:Account, password:String):Bool;
 	public function logOut():Bool;
 	public function redirect(serverIP:String, serverPort:Int, ?serverPassword:String):Bool;
 	public function resendModInfo():Bool;
@@ -44,5 +44,12 @@ extern class Player extends Ped
 	public function takeScreenshot(width:Int, height:Int, ?tag:String, ?quality:Int = 30, ?maxBandwith:Int = 5000):Bool;
 	public function fadeCamera(value:Bool, time:Float = 1):Void;
 	public function setHudComponentVisible(component:String, visible:Bool):Void;
+
+	public function outputChat(text:String, r:Int = 231, g:Int = 217, b:Int = 176, colorCoded:Bool = false):Bool;
+	//public function triggerEvent(eventName:String, baseElement:Element, ?argument1:Dynamic):Bool;
 	
+	public static inline function create(playerName:String):Player
+	{
+		return untyped __call__("getPlayerFromName", playerName);
+	}
 }

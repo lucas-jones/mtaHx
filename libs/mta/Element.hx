@@ -6,7 +6,7 @@ package mta;
 import mta.math.Matrix;
 import mta.math.Vector3;
 
-@:native("_G") @dotpath
+@:native("Element") @dotpath
 extern class Element
 {
 	public var alpha:Int;//0-255
@@ -19,16 +19,13 @@ extern class Element
 	public var lowlod(default, never):Element;
 	public var model:Int;
 	public var parent:Element;
-	public var rotation:Vector3; //x,y,z
 	public var syncer:Element;
 	public var type:String;
-	public var velocity:Vector3; //x,y,z
 	public var attachedTo:Element;
 	public var attatchedElements(default, never):Array<Element>;
 	public var doubleSided:Bool;
 	public var frozen:Bool;
 	public var inWater(default, never):Bool;
-	public var matrix:Matrix;
 	public var collisions:Bool;//Collisions enabled
 	public var waitingForGroundToLoad:Bool;
 	public var zoneName:String;
@@ -37,7 +34,7 @@ extern class Element
 	public function areCollisionsEnabled():Bool;
 	public function attach(otherElement:Element, ?position:Vector3, ?rotation:Vector3):Bool;
 	public function clearVisibility():Bool;
-	public function clone(?x:Float, ?y:Float, ?z:Float, ?cloneChildren:Bool):Element;
+	public function clone(?position:Vector3, ?cloneChildren:Bool = false):Element;
 	public function destroy():Bool;
 	public function detach(?otherAttatchedElement:Element):Bool;
 	public static function getAllByType(type:String, ?startAt:Element, ?streamedIn:Bool):Array<Element>; //type must be a string e.g "Vehicle"
@@ -59,4 +56,9 @@ extern class Element
 	public function removeData(key:String):Bool;
 	public function setAttachedOffsets(?position:Vector3, ?rotation:Vector3):Bool;
 	public function setData(key:String, value:Dynamic, ?syncronise:Bool = true):Bool;
+
+	public static inline function create(type:String, ?id:String):Element
+	{
+		return untyped __call__("Element", type, id);
+	}
 }
