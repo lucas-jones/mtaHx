@@ -1,6 +1,6 @@
 package mta;
 
-import externs.math.Vector3;
+import mta.math.Vector3;
 
 @:native("_G") @dotpath
 extern class Marker

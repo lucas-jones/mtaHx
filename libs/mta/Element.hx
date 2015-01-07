@@ -3,8 +3,8 @@
 
 package mta;
 
-import externs.math.Matrix;
-import externs.math.Vector3;
+import mta.math.Matrix;
+import mta.math.Vector3;
 
 @:native("_G") @dotpath
 extern class Element

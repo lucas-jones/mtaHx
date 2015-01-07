@@ -1,6 +1,6 @@
 package mta;
 
-import externs.Element;
+import mta.Element;
 
 @:native("_G") @dotpath
 extern class ColShape

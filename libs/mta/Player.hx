@@ -3,6 +3,7 @@ package mta;
 import mta.math.Matrix;
 import mta.math.Vector3;
 
+@:native("Player") @dotpath
 extern class Player extends Ped
 {
 	public var account(default, never):Account;
