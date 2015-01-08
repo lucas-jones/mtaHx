@@ -1,9 +1,9 @@
 package events;
 
 import events.BaseEventHandler;
-import externs.Player;
+import mta.Player;
 
-import Main.Globals;
+import mta.Globals;
 
 
 class EventHandler

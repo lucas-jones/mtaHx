@@ -32,6 +32,9 @@ extern class Vehicle extends Element
 	public var name(default, never):String;
 	public var vehicleType(default, never):String;
 
+	public function setColor(r1:Int, g1:Int, b1:Int, ?r2:Int, ?g2:Int, ?b2:Int, ?r3:Int, ?g3:Int, ?b3:Int, ?r4:Int, ?g4:Int, ?b4:Int):Bool;
+	public function setHeadLightColor(r:Int, g:Int, b:Int):Bool;
+
 	public static inline function create(modelId:Int, position:Vector3, ?rotation:Vector3, ?numberPlate:String, direction:Bool = false, ?varient1:Int, ?varient2:Int):Vehicle
 	{
 		if(rotation == null) rotation = Vector3.create();
