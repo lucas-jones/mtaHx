@@ -44,7 +44,7 @@ extern class Player extends Ped
 	public function takeScreenshot(width:Int, height:Int, ?tag:String, ?quality:Int = 30, ?maxBandwith:Int = 5000):Bool;
 	public function fadeCamera(value:Bool, time:Float = 1):Void;
 	public function setHudComponentVisible(component:String, visible:Bool):Void;
-
+	public function setCameraMatrix(positionX:Float, positionY:Float, positionZ:Float, lookAtX:Float, lookAtY:Float, lookAtZ:Float, roll:Float = 0, fov:Float = 70):Void;
 	public function outputChat(text:String, r:Int = 231, g:Int = 217, b:Int = 176, colorCoded:Bool = false):Bool;
 	//public function triggerEvent(eventName:String, baseElement:Element, ?argument1:Dynamic):Bool;
 	
