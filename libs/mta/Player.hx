@@ -48,8 +48,5 @@ extern class Player extends Ped
 	public function outputChat(text:String, r:Int = 231, g:Int = 217, b:Int = 176, colorCoded:Bool = false):Bool;
 	//public function triggerEvent(eventName:String, baseElement:Element, ?argument1:Dynamic):Bool;
 	
-	public static inline function create(playerName:String):Player
-	{
-		return untyped __call__("getPlayerFromName", playerName);
-	}
+	public static function create(playerName:String):Player;
 }

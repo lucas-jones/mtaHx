@@ -14,8 +14,5 @@ extern class Vector3
 	public function getSquaredLength():Float;
 	public function getNormalized():Vector3;
 
-	public static inline function create(x:Float = 0, y:Float = 0, z:Float = 0):Vector3
-	{
-		return untyped __call__("Vector3", x, y, z);
-	}
+	public static function create(x:Float = 0, y:Float = 0, z:Float = 0):Vector3;
 }

@@ -1,5 +1,6 @@
 package mta;
 
+import mta.math.Vector2;
 import mta.math.Vector3;
 
 @:native("Vehicle") @dotpath
@@ -28,16 +29,28 @@ extern class Vehicle extends Element
 	public var landingGearDown:Bool;
 	public var maxPassengers(default, never):Int;
 	public var upgrades(default, never):Array<Int>;
-
+	public var turretPosition:Vector2;
+	public var turnVelocity:Vector3;
+	public var overrideLights:Int; // 0 - default, 1 - always off, 2 - always on
+	public var idleRespawnDelay(never, default):Int;
+	public var respawnDelay(never, default):Int;
+	public var respawnPosition(never, default):Vector3;
+	public var onGround(default, never):Bool;
 	public var name(default, never):String;
 	public var vehicleType(default, never):String;
+	public var sirens(default, never):Array<Dynamic>;
+	public var handling(default, never):Map<String, Dynamic>;
+	public var occupant(default, never):Player;
+
+	public function setVehicleDoorState(door:Int, state:Int):Bool;
+	public function fix():Bool;
+	public function blow():Bool;
+	public function respawn():Bool;
+	public function toggleRespawn(value:Bool):Bool;
+	public function spawn(position:Vector3, ?rotation:Vector3):Bool;
 
 	public function setColor(r1:Int, g1:Int, b1:Int, ?r2:Int, ?g2:Int, ?b2:Int, ?r3:Int, ?g3:Int, ?b3:Int, ?r4:Int, ?g4:Int, ?b4:Int):Bool;
 	public function setHeadLightColor(r:Int, g:Int, b:Int):Bool;
 
-	public static inline function create(modelId:Int, position:Vector3, ?rotation:Vector3, ?numberPlate:String, direction:Bool = false, ?varient1:Int, ?varient2:Int):Vehicle
-	{
-		if(rotation == null) rotation = Vector3.create();
-		return untyped __call__("Vehicle", modelId, position, rotation, numberPlate, direction, varient1, varient2);
-	}
+	public static function create(modelId:Int, position:Vector3, ?rotation:Vector3, ?numberPlate:String, direction:Bool = false, ?varient1:Int, ?varient2:Int):Vehicle;
 }

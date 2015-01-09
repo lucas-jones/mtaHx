@@ -15,14 +15,6 @@ extern class Matrix
 	public function transformDirection():Vector3;
 	public function inverse():Matrix;
 
-	public static inline function create(?position:Vector3, ?rotation:Vector3):Matrix
-	{
-		if(position == null) position = Vector3.create();
-		return untyped __call__("Matrix", position, rotation);
-	}
-
-	public static inline function createFromFloat(x:Float = 0, y:Float = 0, z:Float = 0, rotX:Float = 0, rotY:Float = 0, rotZ:Float = 0):Matrix
-	{
-		return untyped __call__("Matrix", x, y, z, rotX, rotY, rotZ);
-	}
+	@:overload(function(?position:Vector3, ?rotation:Vector3):Matrix {})
+	public static function create(x:Float = 0, y:Float = 0, z:Float = 0, rotX:Float = 0, rotY:Float = 0, rotZ:Float = 0):Matrix;
 }

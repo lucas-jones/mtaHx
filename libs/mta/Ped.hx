@@ -47,8 +47,5 @@ extern class Ped extends Element
 	public function setStat(stat:Int, value:Float):Bool;
 	public function warpIntoVehicle(vehicle:Vehicle, ?seat:Int):Bool;
 
-	public static inline function create(modelId:Int, position:Vector3, rotation:Float = 0, synced:Bool = true):Ped
-	{
-		return untyped __call__("Ped", modelId, position, rotation, synced);
-	}
+	public static function create(modelId:Int, position:Vector3, rotation:Float = 0, synced:Bool = true):Ped;
 }

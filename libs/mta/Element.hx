@@ -57,8 +57,5 @@ extern class Element
 	public function setAttachedOffsets(?position:Vector3, ?rotation:Vector3):Bool;
 	public function setData(key:String, value:Dynamic, ?syncronise:Bool = true):Bool;
 
-	public static inline function create(type:String, ?id:String):Element
-	{
-		return untyped __call__("Element", type, id);
-	}
+	public static function create(type:String, ?id:String):Element;
 }
