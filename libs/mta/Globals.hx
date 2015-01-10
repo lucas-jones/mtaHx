@@ -1,5 +1,7 @@
 package mta;
 
+import mta.Element;
+
 @:native("_G") @dotpath
 extern class Globals
 {
@@ -25,4 +27,12 @@ extern class Globals
 	public static function getPlayerFromName(name:String):Player;
 
 	public static function setWeather(value:Int):Void;
+
+	public static function smoothMoveCamera(startPositionX:Float, startPositionY:Float, startPositionZ:Float, startLookX:Float, startLookY:Float, startLookZ:Float,
+											endPositionX:Float, endPositionY:Float, endPositionZ:Float, endLookX:Float, endLookY:Float, endLookZ:Float,
+											time:Int):Void;
+
+	public static function moveObject(object:Dynamic, time:Int, targetX:Float, targetY:Float, targetZ:Float):Void;
+
+	public static function createObject(modelId:Int, x:Float, y:Float, z:Float):Element;
 }

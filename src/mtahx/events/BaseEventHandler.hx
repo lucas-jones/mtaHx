@@ -1,4 +1,4 @@
-package events;
+package mtahx.events;
 
 @:native("_G") @dotpath
 extern class BaseEventHandler

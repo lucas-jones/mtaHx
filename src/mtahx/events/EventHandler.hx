@@ -1,9 +1,8 @@
-package events;
+package mtahx.events;
 
-import events.BaseEventHandler;
+import mtahx.events.BaseEventHandler;
 import mta.Globals;
 import mta.Player;
-
 
 class EventHandler
 {
@@ -21,4 +20,16 @@ class EventHandler
 	{
 		BaseEventHandler.addEventHandler("onClientPreRender", Globals.getRootElement(), callback);
 	}
+
+	public static function addOnClientResourceStart(callback:Dynamic->Void):Void
+	{
+		BaseEventHandler.addEventHandler("addOnClientResourceStart", Globals.getRootElement(), callback);
+	}
+
+	public static function addOnResourceStart(callback:Dynamic->Void):Void
+	{
+		BaseEventHandler.addEventHandler("addOnResourceStart", Globals.getRootElement(), callback);
+	}
+
+	
 }
