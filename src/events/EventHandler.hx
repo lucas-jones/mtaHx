@@ -1,9 +1,8 @@
 package events;
 
 import events.BaseEventHandler;
-import mta.Player;
-
 import mta.Globals;
+import mta.Player;
 
 
 class EventHandler
@@ -16,5 +15,10 @@ class EventHandler
 	public static function addOnPlayerJoin(callback:Player->Void):Void
 	{
 		BaseEventHandler.addEventHandler("onPlayerJoin", Globals.getRootElement(), callback);
+	}
+
+	public static function addOnClientPreRender(callback:Float->Void):Void
+	{
+		BaseEventHandler.addEventHandler("onClientPreRender", Globals.getRootElement(), callback);
 	}
 }
