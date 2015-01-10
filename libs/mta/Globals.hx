@@ -20,7 +20,9 @@ extern class Globals
 	public static function getPlayerBlurLevel(source:Player):Int;
 	public static function setPlayerBlurLevel(source:Player, value:Int):Void;
 
-	public static function setCameraMatrix(source:Player, positionX:Float, positionY:Float, positionZ:Float, lookX:Float = 0, lookY:Float = 0, lookZ:Float = 0):Void;
+	public static function setCameraMatrix(positionX:Float, positionY:Float, positionZ:Float, lookX:Float = 0, lookY:Float = 0, lookZ:Float = 0):Void;
 
 	public static function getPlayerFromName(name:String):Player;
+
+	public static function setWeather(value:Int):Void;
 }
